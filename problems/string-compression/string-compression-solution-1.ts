@@ -72,3 +72,9 @@ console.log(
 console.log(compress(["1"]));
 console.log(compress(["@", "@", "#", "#", "#", "$"]));
 console.log(compress(["p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","B","B","B","q","q","q","q","q","q","q","q","q","q","q","q","q","q","q","q","8","8","8","8","8","8","8","8","8","8","8","8","8","8","8","8","8","|","|","|","|","|","|","|","|","|","j","j","j","j","j","j","6","6","6"]));
+
+/*
+Space Complexity: O(1) - We are modifying the input array in place (does not count toward space complexity) and using only a constant amount of extra space for pointers and count.
+
+Time Complexity: O(n2) due to splice method being used. 
+ */
