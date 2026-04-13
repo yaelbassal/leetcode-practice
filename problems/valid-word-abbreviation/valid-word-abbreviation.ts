@@ -67,3 +67,14 @@ console.log(validWordAbbreviation("abcdefg", "a05g"));
 console.log(validWordAbbreviation("word", "4"));
 console.log(validWordAbbreviation("hello", "h3x"));
 console.log(validWordAbbreviation("a", "1"));
+
+/*
+Space Complexity: O(1) - Only using a constant amount of extra space for pointers and values.
+
+Time Complexity: O(n) - Where n is the combined length of `word` and `abbr`.
+
+Each pointer (`wordPointer` and `abbrPointer`) moves forward without backtracking.
+Even though there is a nested while loop to process numeric values in `abbr`,
+each character in `abbr` is processed at most once. Therefore, the total number
+of operations is linear with respect to the input size.
+*/
