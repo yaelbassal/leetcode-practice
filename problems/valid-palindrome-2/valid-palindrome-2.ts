@@ -10,7 +10,8 @@ Constraints:
 - The string consists only of English letters.
 */
 
-function isValid(str: string, leftPointer: number, rightPointer: number) {
+// helper function that check if a string is a valid palindrome
+function isValid(str: string, leftPointer: number, rightPointer: number): boolean {
   while (leftPointer < rightPointer) {
     if (str[leftPointer] !== str[rightPointer]) {
       return false;
@@ -20,6 +21,7 @@ function isValid(str: string, leftPointer: number, rightPointer: number) {
   }
   return true;
 }
+
 
 function isPalindrome(str: string): boolean {
   let startPtr = 0;
@@ -31,9 +33,7 @@ function isPalindrome(str: string): boolean {
       endPtr--;
     } else {
       // Check if we can remove a character from either end to make it a palindrome
-      return (
-        isValid(str, startPtr + 1, endPtr) || isValid(str, startPtr, endPtr - 1)
-      );
+      return (isValid(str, startPtr + 1, endPtr) || isValid(str, startPtr, endPtr - 1));
     }
   }
 
