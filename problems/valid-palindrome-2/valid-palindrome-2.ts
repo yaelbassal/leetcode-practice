@@ -10,10 +10,20 @@ Constraints:
 - The string consists only of English letters.
 */
 
+function isValid(str: string, leftPointer: number, rightPointer: number) {
+  while (leftPointer < rightPointer) {
+    if (str[leftPointer] !== str[rightPointer]) {
+      return false;
+    }
+    leftPointer++;
+    rightPointer--;
+  }
+  return true;
+}
+
 function isPalindrome(str: string): boolean {
   let startPtr = 0;
   let endPtr = str.length - 1;
-  let numRemovedChars = 0;
 
   while (startPtr < endPtr) {
     if (str[startPtr] === str[endPtr]) {
@@ -21,19 +31,13 @@ function isPalindrome(str: string): boolean {
       endPtr--;
     } else {
       // Check if we can remove a character from either end to make it a palindrome
-      if (str[startPtr + 1] === str[endPtr]) {
-        numRemovedChars++;
-        startPtr++;
-      } else if (str[endPtr - 1] === str[startPtr]) {
-        numRemovedChars++;
-        endPtr--;
-      } else {
-        return false;
-      }
+      return (
+        isValid(str, startPtr + 1, endPtr) || isValid(str, startPtr, endPtr - 1)
+      );
     }
   }
 
-  return numRemovedChars <= 1;
+  return true;
 }
 
 console.log(isPalindrome("madame"));
@@ -41,3 +45,4 @@ console.log(isPalindrome("dead"));
 console.log(isPalindrome("abca"));
 console.log(isPalindrome("tebbem"));
 console.log(isPalindrome("eeccccbebaeeabebccceea"));
+console.log(isPalindrome("abcdecba"));
