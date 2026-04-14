@@ -46,3 +46,12 @@ console.log(isPalindrome("abca"));
 console.log(isPalindrome("tebbem"));
 console.log(isPalindrome("eeccccbebaeeabebccceea"));
 console.log(isPalindrome("abcdecba"));
+
+/*
+Space Complexity: O(1) - Only using a constant amount of extra space for pointers and values.
+
+Time Complexity: O(n)
+- We traverse the string once with two pointers.
+- At most one mismatch triggers up to two additional linear checks.
+- Overall complexity remains linear because the second loop does NOT happen for every iteration. It happens only once.
+*/
